@@ -1,0 +1,5 @@
+INSERT into dept_sequence(deptno,dname,loc) VALUES(SEQ_DEPT_SEQUENCE.nextval,'database','seoul');
+
+
+
+첫번쨰 자리의 값인 deptno에값은 시퀀스에서 지정한값에 증감값으로 입력된다 

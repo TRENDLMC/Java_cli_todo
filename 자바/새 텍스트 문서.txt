@@ -1,0 +1,95 @@
+Scanner a1 = new Scanner(System.in);
+        while (true) {
+            System.out.println("은행업무");
+
+            System.out.println("1,입급 2,출금 3,이체 4,잔액조회 5,종료");
+            int a2 = a1.nextInt();
+
+            if (a2 == 1) {
+                System.out.println("입금");
+                System.out.println("계좌번호입력");
+                int z1 = a1.nextInt();
+                if (기록.계 == z1) {
+                    System.out.println("입금할 금액을 입력해주십시오.");
+                    long z2 = a1.nextInt();
+                    if (z2 < 0) {
+                        System.out.println("입금할수있는금액이아닙니다");
+                    } else {
+                        기록.돈 += z2;
+                        System.out.println("정상적으로" + z2 + "원이 입금었습니다");
+                    }
+                } else {
+                    System.out.println("계좌번호가틀립니다");
+                }
+            } else if (a2 == 2) {
+                System.out.println("출금");
+                System.out.println("계좌번호입력");
+                int x1 = a1.nextInt();
+                if (기록.계 == x1) {
+                    System.out.println("비밀번호를입력해주십시오");
+                    int x2 = a1.nextInt();
+                    if (기록.비 == x2) {
+                        System.out.println("출금할금액을 입력해주십시오");
+                        int x3 = a1.nextInt();
+                        if (x3 > 기록.돈) {
+                            System.out.println("출금할잔액이 부족합니다");
+                        } else {
+                            기록.돈 -= x3;
+                            System.out.println("출금이" + x3 + "원되었습니다");
+                        }
+                    } else {
+                        System.out.println("비밀번호가 틀립니다");
+                    }
+                } else {
+                    System.out.println("계좌번호가 틀립니다");
+
+                }
+            } else if (a2 == 3) {
+                System.out.println("이체");
+                System.out.println("본인의 계좌를 입력해주세요");
+                int c1 = a1.nextInt();
+                if (기록.계 == c1) {
+                    System.out.println("비밀번호를 입력하여주세요");
+                    int c2 = a1.nextInt();
+                    if (기록.비 == c2) {
+                        System.out.println("이체할 계좌를 입력해주십시오");
+                        int c3 = a1.nextInt();
+                        if (기록.친계 == c3) {
+                            System.out.println("이체할금액을 입력해주십시오");
+                            int c4 = a1.nextInt();
+                            if (기록.돈 >= c4) {
+                                기록.돈 -= c4;
+                                System.out.println("이체가완료되었습니다");
+                            } else {
+                                System.out.println("이체할금액이 부족합니다");
+                            }
+                        } else {
+                            System.out.println("이체할 계좌가 정확하지않습니다");
+                        }
+                    } else {
+                        System.out.println("비밀번호가가 정확하지 않습니다");
+                    }
+                } else {
+                    System.out.println("계좌번호가 정확하지 않습니다");
+                }
+            } else if (a2 == 4) {
+                System.out.println("예금조회");
+                System.out.println("본인의 계좌를 입력해주세요");
+                int d1 = a1.nextInt();
+                if (d1 == 기록.계) {
+                    System.out.println("비밀번호를입력해주세요");
+                    int d2 = a1.nextInt();
+                    if (d2 == 기록.비) {
+                        System.out.println("현재잔액은" +기록.돈 + "입니다");
+                    } else
+                        System.out.println("비밀번호 정확하지않습니다");
+                } else {
+                    System.out.println("계좌번호가 틀렸습니다");
+                }
+            } else if (a2 == 5) {
+                System.out.println("종료");
+                break g ;
+            }
+        }
+        System.out.println("현재잔액은"+기록.돈+"입니다");
+    }
