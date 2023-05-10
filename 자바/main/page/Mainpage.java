@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Mainpage {
 	Search search=new Search();
+	Create create=new Create();
 	Scanner sca=new Scanner(System.in);
 	int se;
 	
@@ -18,12 +19,16 @@ public class Mainpage {
 		}
 		}while(se>=7||se<=0);
 		
-	/*	switch (se) {
-		case 1:         berak;
-		case 2:         berak;
-		case 3:         berak;
-		case 4:     	berak;
-		case 5: search.numsearch();break;
+		switch (se) {
+		case 1:
+		default: return;
+		}
+		/*
+		case 1:create.NoCreate(); break;
+		case 2:         break;
+		case 3:         break;
+		case 4:     	break;
+		case 5: search.sec(); break;
 		case 6:return;
 	}
 	*/

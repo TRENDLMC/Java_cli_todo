@@ -9,7 +9,6 @@ public class Create {
 	int re;
 	private int a;
 	private int b;
-	private int c;
 	
 	private static final String driver="oracle.jdbc.driver.OracleDriver";
 
@@ -19,6 +18,7 @@ public class Create {
 
 	private static final String pwd="12345";
 	
+	int pass;
 	
 	void NoCreate() {
 		
@@ -39,7 +39,7 @@ public class Create {
 		System.out.println("-------------------");
 		System.out.print("|이름:"); String name=sca.next();
 		do {
-		System.out.print("|비밀번호:"); int pass=sca.nextInt();
+		System.out.print("|비밀번호:"); pass=sca.nextInt();
 		System.out.print("|비밀번호확인");int passto=sca.nextInt();
 			if(pass!=passto) {
 			System.out.println("비밀번호가 다릅니다재입력바랍니다");
@@ -50,23 +50,23 @@ public class Create {
 		}while(re==1);
 		
 		System.out.print("|초기입금액:"); int meney=sca.nextInt();
-		System.out.print("-------------------");
+		System.out.println("-------------------");
 		
 		a=(int)(Math.random()*1000)+1;
-		b=(int)(Math.random()*1000)+1;
-		c=(int)(Math.random()*1000)+1;
-		
+		String ax=String.valueOf(a);
+
 		//계좌생성 
-		String numcre="INSERT into accnum VALUES('name',numadd.nextval,'a-b-c',pass,meney);";
+		String numcre="INSERT into accnum Values('"+name+"',numadd.nextval,'"+ax+"',"+pass+","+meney+")"; 
 		stmt.executeUpdate(numcre);
+
 		Search search=new Search();
-		search.numsearch(1);
+		
+		search.numsearch(ax);
 		
 	}catch (Exception e) {
 		e.printStackTrace();
 	}
 	}
-	
 	
 
 }
