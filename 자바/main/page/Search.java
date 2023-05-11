@@ -28,12 +28,11 @@ public class Search {
 	
 	
 	public void sec() {
-		
+		End end=new End();
+		Search search= new Search();
+		Mainpage main=new Mainpage();
 		
 		try{
-			 
-			Search search= new Search();
-
 			Class.forName(driver);
 			
 			conn=DriverManager.getConnection(url,user,pwd);
@@ -44,49 +43,34 @@ public class Search {
 			System.out.print("계좌번호:");
 			String num=sca.next();
 			String numO=search.cunumsearch(num);
-			rs=stmt.executeQuery(numO);
 			 if(!num.equals(numO)) {
 				 System.out.println("계좌번호가 일치하지않습니다");
 				 System.out.println("메인메뉴로 돌아갑니다");
-				Mainpage main=new Mainpage();
+		
 					
 				main.Page();
 			 }
-			System.out.print("조회할 계좌 비밀번호를 입력해주세요");
+			System.out.println("조회할 계좌 비밀번호를 입력해주세요");
+			System.out.print("비밀번호:");
 			int pass=sca.nextInt();
-			String passO="select pass from accnum";
-			rs=stmt.executeQuery(passO);
-		
-			while(rs.next()) {
-				int passOx=(int)rs.getInt("pass");
-				 if(pass==passOx) {
-					 break;
-				 }else {
-					 System.out.println("비밀번호가 일치하지않습니다");
-					 System.out.println("메인메뉴로 돌아갑니다");
-					Mainpage main=new Mainpage();
-					 main.Page();
-				 }
-				}
+			int passO=search.sepass(num);
+			 if(pass!=passO) {
+				 System.out.println("비밀번호가 일치하지않습니다");
+				 System.out.println("메인메뉴로 돌아갑니다");
+				 main.Page();		
+			 }
+			 
+			search.numsearch(num);
 			
-			Search se= new Search();
-			
-			rs.close();
-
-			stmt.close();
-
-			conn.close();
-			
-			se.numsearch(renum);
-
-		
+			end.endporss(5);
 		}catch (Exception e) {
 		e.printStackTrace();
 		}
 	}
 	
-	public void numsearch(String renum) {
 	
+	public void numsearch(String renum) {
+		Mainpage main=new Mainpage();
 		
 		try{
 
@@ -105,27 +89,24 @@ public class Search {
 			System.out.println("잔액:"+rs.getLong("money"));
 			System.out.println("계좌주:"+rs.getString("cuname"));
 		}
+		
 		rs.close();
 
 		stmt.close();
 
 		conn.close();
 		
-		System.out.println("정상적으로 잔액조회가끝낫습니다");
-		System.out.println("종료하시려면 1번 메인메뉴는 2번을 눌러주세요");
-		System.out.print("번호:");int end=sca.nextInt();
-		if(end==2) {
-			Mainpage main=new Mainpage();
-			main.Page();	
-		}else {
-			return;
-		}
+		return;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			
 		}
 	}
+	
+	
+	
+	
 	public String cunumsearch(String renum) {
 	
 		String reulst=null;
@@ -160,6 +141,7 @@ public class Search {
 		}
 		return reulst;
 	}
+	
 	
 	public int sepass(String renum) {
 		int repass=0;
