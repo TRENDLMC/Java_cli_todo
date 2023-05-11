@@ -21,42 +21,10 @@ public class Sqltset {
 
 	ResultSet rs;
 	
-	public static void main(String[] args) {
+	public String creNum(String name,int pass,int money) {
 		
-	try {
-		Class.forName(driver);
-	
-		conn=DriverManager.getConnection(url,user,pwd);
-
-		stmt=conn.createStatement();
+		String ax=null;
 		
-
-		String query="insert into member values('0003','차범근',185,85,23)";
-
-		stmt.executeUpdate(query);
-
-		String query2="select * from member";
-
-		rs=stmt.executeQuery(query2);
-
-		rs.close();
-
-		stmt.close();
-
-		conn.close();
-
-	}catch(Exception e){
-
-	e.printStackTrace();
-
-	}
-		
-	}
-	
-	
-	public void creNum(String name,int pass,int money) {
-		
-	}
 		try {
 			Class.forName(driver);
 		
@@ -64,7 +32,191 @@ public class Sqltset {
 
 			stmt=conn.createStatement();
 			
-			String query=
-	}
+			int a=(int)(Math.random()*10000)+1;
+			ax=String.valueOf(a);
+			
+			String query="INSERT into accnum Values('"+name+"',numadd.nextval,'"+ax+"',"+pass+","+money+")"; 
+			
+			stmt.executeUpdate(query);
+			
+			rs.close();
 
+			stmt.close();
+
+			conn.close();
+			
+	}catch (Exception e) {
+		e.printStackTrace();
+	}
+		return ax;
+
+	}
+	
+	public void updb(String renum,long money) {
+		
+		try{
+
+		Class.forName(driver);
+		
+		conn=DriverManager.getConnection(url,user,pwd);
+
+		stmt=conn.createStatement();
+		
+		String updb="UPDATE accnum SET money='"+money+"'WHERE accnum='"+renum+"'";
+		
+		stmt.executeUpdate(updb);
+
+		rs.close();
+
+		stmt.close();
+
+		conn.close();
+
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return;
+		
+	}
+	public String seNum(String renum) {
+		
+		String reulst=null;
+		
+		try{
+
+		Class.forName(driver);
+		
+		conn=DriverManager.getConnection(url,user,pwd);
+
+		stmt=conn.createStatement();
+		
+		String query="select accnum from accnum where accnum="+renum;
+		
+		rs=stmt.executeQuery(query);
+		
+		while(rs.next()) {
+		reulst =rs.getString("accnum");
+		}
+		
+		rs.close();
+
+		stmt.close();
+
+		conn.close();
+
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return reulst;
+	}
+	
+	public int sepass(String renum) {
+		int repass=0;
+		
+		try{
+
+		Class.forName(driver);
+		
+		conn=DriverManager.getConnection(url,user,pwd);
+
+		stmt=conn.createStatement();
+		
+		String query="select pass from accnum where accnum="+renum;
+		
+		rs=stmt.executeQuery(query);
+		
+		while(rs.next()) {
+		repass =rs.getInt("pass");
+		}
+		
+		rs.close();
+
+		stmt.close();
+
+		conn.close();
+
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return repass;
+	}
+	
+	public void seAcc(String renum) {
+		
+		
+		try{
+
+		Class.forName(driver);
+		
+		conn=DriverManager.getConnection(url,user,pwd);
+
+		stmt=conn.createStatement();
+		
+		String query="select accnum,cuname,money from accnum where accnum="+renum;
+		
+		rs=stmt.executeQuery(query);
+		
+		while(rs.next()) {
+			System.out.println("계좌번호:"+rs.getString("accnum"));
+			System.out.println("잔액:"+rs.getLong("money"));
+			System.out.println("계좌주:"+rs.getString("cuname"));
+		}
+		
+		rs.close();
+
+		stmt.close();
+
+		conn.close();
+		
+		return;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+	}
+	public long seMon(String renum) {
+		
+		long dbmoney=0;
+		
+		try{
+
+		Class.forName(driver);
+		
+		conn=DriverManager.getConnection(url,user,pwd);
+
+		stmt=conn.createStatement();
+		
+		String money="select money from accnum where accnum="+renum;
+		
+		rs=stmt.executeQuery(money);
+		
+		while(rs.next()) {
+		dbmoney =rs.getLong("money");
+		}
+		
+		rs.close();
+
+		stmt.close();
+
+		conn.close();
+
+		
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			
+		}
+		return dbmoney;
+	}
+	
 }
