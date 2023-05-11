@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Mainpage {
 	Search search=new Search();
 	Create create=new Create();
+	deposit_and_withdrawal and= new deposit_and_withdrawal();
+	Transfer tra=new Transfer();
 	Scanner sca=new Scanner(System.in);
 	int se;
 	
@@ -20,18 +22,14 @@ public class Mainpage {
 		}while(se>=7||se<=0);
 		
 		switch (se) {
-		case 1:
-		default: return;
-		}
-		/*
 		case 1:create.NoCreate(); break;
-		case 2:         break;
-		case 3:         break;
-		case 4:     	break;
-		case 5: search.sec(); break;
+		case 2:and.meney(1); break;
+		case 3:and.meney(2); break;
+		case 4:tra.moneyTransfor();break;
+		case 5:search.sec(); break;
 		case 6:return;
-	}
-	*/
+		}
+
 
 	}
 }
