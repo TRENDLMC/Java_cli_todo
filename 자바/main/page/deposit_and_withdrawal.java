@@ -5,77 +5,51 @@ import java.util.Scanner;
 public class deposit_and_withdrawal {
 	End end=  new End();
 	Scanner sca=new Scanner(System.in);
-	int retry;
-	String renum=null;
 	Sqltset sql=new Sqltset();
-	
+	seNumber sec=new seNumber();
 	public void meney(int x) {
 		int y= x;
 		if(y==1) {
-		do {
-		System.out.println("출금하실 계좌를 입력해주세요");
-		System.out.print("계좌번호:");
-		renum=sca.next();
-		String realnum=sql.seNum(renum);
-		if(!renum.equals(realnum)){
-			System.out.println("계좌번호가 틀렸습니다 재입력하시길바랍니다.:");
-			retry=1;
-		}else {
-			retry=0;
-		}
-		}while(retry==1);
-		
-		System.out.println("계좌의 비밀번호를 입력해주십시오.");
-		System.out.print("비밀번호:");
-		int repass=sca.nextInt();
-		int realpass=sql.sepass(renum);
-		if(repass!=realpass){
-			System.out.println("비밀번호가 틀렸습니다.");
-			end.endporss(10);
-		}
+		String realunm=sec.seNumber(4);
+		sec.sePass(realunm);
 		System.out.print("출금하실금액을 입력해주십시오:");
 		long money=sca.nextInt();
 		if(money<0) {
 			 System.out.println("금액이 이상합니다 ");
-			 end.endporss(10);
-		 }
-		 long russmoney=sql.seMon(renum);
+			 end.endporss(8);
+		 } 
+		
+		long russmoney=sql.seMon(realunm);
+		 
 		 if(russmoney<money) {
 			 System.out.println("잔액이 모자릅니다");
-			 end.endporss(10);
+			 end.endporss(8);
 		 }else {
 				long ehs= russmoney-money;
-				 sql.updb(renum, ehs);
+				 sql.updb(realunm, ehs);
 		 }
-		 long outmoney=sql.seMon(renum);
-		 System.out.println("현재잔액:"+outmoney);
+		 long outmoney=sql.seMon(realunm);
+		 System.out.println("+-------------------+");
+		 System.out.println("|현재잔액:"+outmoney+"|");
+		 System.out.println("+-------------------+");
 		end.endporss(2); 
 		}
 		else if(y==2){
-			do {
-			System.out.println("입금하실 계좌를 입력해주세요");
-			System.out.print("계좌번호:");
-			renum=sca.next();
-			String realnum=sql.seNum(renum);
-			if(!renum.equals(realnum)){
-				System.out.print("계좌번호가 틀렸습니다 재입력하시길바랍니다.:");
-				retry=1;
-			}else {
-				retry=0;
-			}
-			}while(retry==1);
-			System.out.println("입급하실금액을 입력해주십시오:");
+			String realunm=sec.seNumber(5);
+			System.out.println("입급하실금액을 입력해주십시오");
 			System.out.print("입금액:");
 			 long money=sca.nextInt();
 			 if(money<0) {
 				 System.out.println("금액이 이상합니다 ");
-				 end.endporss(10);
+				 end.endporss(9);
 				}
-			long dbmoney=sql.seMon(renum);
+			long dbmoney=sql.seMon(realunm);
 			 money +=dbmoney;
-			 sql.updb(renum, money);
-			 long outmoney=sql.seMon(renum);
-			 System.out.println("현재잔액:"+outmoney);
+			 sql.updb(realunm, money);
+			 long outmoney=sql.seMon(realunm);
+			 System.out.println("+-------------------+");
+			 System.out.println("|현재잔액:"+outmoney+"|");
+			 System.out.println("+-------------------+");
 			 end.endporss(3);
 			}
 	}

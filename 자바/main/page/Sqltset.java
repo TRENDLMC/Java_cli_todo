@@ -21,9 +21,8 @@ public class Sqltset {
 
 	ResultSet rs;
 	
-	public String creNum(String name,int pass,int money) {
+	public void creNum(String name,int pass,int money,String ax) {
 		
-		String ax=null;
 		
 		try {
 			Class.forName(driver);
@@ -32,15 +31,10 @@ public class Sqltset {
 
 			stmt=conn.createStatement();
 			
-			int a=(int)(Math.random()*10000)+1;
-			ax=String.valueOf(a);
-			
 			String query="INSERT into accnum Values('"+name+"',numadd.nextval,'"+ax+"',"+pass+","+money+")"; 
 			
-			stmt.executeUpdate(query);
+			stmt.executeQuery(query);
 			
-			rs.close();
-
 			stmt.close();
 
 			conn.close();
@@ -48,7 +42,6 @@ public class Sqltset {
 	}catch (Exception e) {
 		e.printStackTrace();
 	}
-		return ax;
 
 	}
 	
@@ -65,9 +58,7 @@ public class Sqltset {
 		String updb="UPDATE accnum SET money='"+money+"'WHERE accnum='"+renum+"'";
 		
 		stmt.executeUpdate(updb);
-
-		rs.close();
-
+		
 		stmt.close();
 
 		conn.close();
@@ -78,7 +69,6 @@ public class Sqltset {
 			e.printStackTrace();
 			
 		}
-		return;
 		
 	}
 	public String seNum(String renum) {
@@ -166,9 +156,11 @@ public class Sqltset {
 		rs=stmt.executeQuery(query);
 		
 		while(rs.next()) {
+			System.out.println("+-----------+");
 			System.out.println("계좌번호:"+rs.getString("accnum"));
 			System.out.println("잔액:"+rs.getLong("money"));
 			System.out.println("계좌주:"+rs.getString("cuname"));
+			System.out.println("+-----------+");
 		}
 		
 		rs.close();

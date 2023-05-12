@@ -16,7 +16,7 @@ public class Mainpage {
 		System.out.println("+---------------이젠은행----------------------------+");
 		System.out.println("|1.계좌생성 2.예금출금 3.예금입금 4.예금이체 5.잔액조회 6.종료|");
 		System.out.println("+-------------------------------------------------+");
-		System.out.print("사용하실 서비스 번호를 입력해주십시오");
+		System.out.println("사용하실 서비스 번호를 입력해주십시오");
 		System.out.print("서비스번호:");
 		se=sca.nextInt();
 		if(se>=7||se<=0) {

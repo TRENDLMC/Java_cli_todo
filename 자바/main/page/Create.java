@@ -5,15 +5,15 @@ public class Create {
 	Sqltset sql=new Sqltset();
 	Scanner sca=new Scanner(System.in);
 	int re;
-	private int a;
 	
 	int pass;
 	
 	void NoCreate() {
+		String ax=null;
+		String al=null;
 		End end=new End();
 		Mainpage main=new Mainpage();
 		Search search=new Search();
-		
 		System.out.println("계좌를 생성합니다.");
 		System.out.println("-------------------");
 		System.out.print("|이름:"); String name=sca.next();
@@ -30,8 +30,13 @@ public class Create {
 		
 		System.out.print("|초기입금액:"); int meney=sca.nextInt();
 		System.out.println("-------------------");
-	
-		String ax=sql.creNum(name, pass, meney);
+		do {
+		int a=(int)(Math.random()*10000)+1;
+		 ax=String.valueOf(a);
+		}while(ax.equals(al=sql.seNum(ax)));
+		
+		sql.creNum(name, pass, meney,ax);
+		
 		sql.seAcc(ax);
 		
 		end.endporss(1);
