@@ -14,7 +14,3 @@ INCREMENT by 1
 START with 1;
 
 commit;
-
-SELECT
-    *
-FROM accnum;

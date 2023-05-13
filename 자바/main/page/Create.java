@@ -2,18 +2,15 @@ package main.page;import java.util.Scanner;
 
 public class Create {
 	
-	Sqltset sql=new Sqltset();
-	Scanner sca=new Scanner(System.in);
 	int re;
-	
 	int pass;
 	
 	void NoCreate() {
 		String ax=null;
 		String al=null;
+		Sqltest sql=new Sqltest();
+		Scanner sca=new Scanner(System.in);
 		End end=new End();
-		Mainpage main=new Mainpage();
-		Search search=new Search();
 		System.out.println("계좌를 생성합니다.");
 		System.out.println("-------------------");
 		System.out.print("|이름:"); String name=sca.next();

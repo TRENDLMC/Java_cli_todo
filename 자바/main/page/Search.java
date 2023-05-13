@@ -10,8 +10,8 @@ public class Search {
 	 String renum;
 	public void sec() {
 		End end=new End();
-		Sqltset sql=new Sqltset();
-		seNumber sec=new seNumber();
+		Sqltest sql=new Sqltest();
+		Senumber sec=new Senumber();
 		String num=sec.seNumber(1);
 		sec.sePass(num);
 		sql.seAcc(num);

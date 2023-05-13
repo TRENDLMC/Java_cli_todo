@@ -3,14 +3,13 @@ package main.page;
 import java.util.Scanner;
 
 public class Transfer {
-	Sqltset sql= new Sqltset();
+	Sqltest sql= new Sqltest();
 	End end= new End();
 	Scanner sca= new Scanner(System.in);
 	
 	void moneyTransfor() {
-		seNumber sec=new seNumber();
+		Senumber sec=new Senumber();
 		long ehs=0;
-		
 		String fromrenum= sec.seNumber(2);
 		sec.sePass(fromrenum);
 		String torenum= sec.seNumber(3);

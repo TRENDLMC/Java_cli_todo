@@ -2,11 +2,12 @@ package main.page;
 
 import java.util.Scanner;
 
-public class deposit_and_withdrawal {
+public class D_A_W {
 	End end=  new End();
 	Scanner sca=new Scanner(System.in);
-	Sqltset sql=new Sqltset();
-	seNumber sec=new seNumber();
+	Sqltest sql=new Sqltest();
+	Senumber sec=new Senumber();
+	
 	public void meney(int x) {
 		int y= x;
 		if(y==1) {

@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Sqltset {
+public class Sqltest {
 	
 	private static final String driver="oracle.jdbc.driver.OracleDriver";
 
@@ -211,4 +211,30 @@ public class Sqltset {
 		return dbmoney;
 	}
 	
+	public void del(String renum) {
+		
+	
+		try{
+
+			Class.forName(driver);
+			
+			conn=DriverManager.getConnection(url,user,pwd);
+
+			stmt=conn.createStatement();
+			
+			String del="delete from accnum where accnum="+renum;
+			
+			rs=stmt.executeQuery(del);
+			
+			stmt.executeUpdate(del);
+			
+			stmt.close();
+
+			conn.close();
+		
+		}catch (Exception e) {
+		e.printStackTrace();
+		}
+		
+	}	
 }

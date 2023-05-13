@@ -6,9 +6,8 @@ public class End {
 	public void endporss(int x) {
 		Mainpage main=new Mainpage();
 		Scanner sca=new Scanner(System.in);
-		Sqltset sql=new Sqltset();
 		End end=new End();
-		deposit_and_withdrawal and= new deposit_and_withdrawal();
+		D_A_W and= new D_A_W();
 		Search search=new Search();
 		Create create=new Create();
 		Transfer tra=new Transfer();
@@ -31,7 +30,7 @@ public class End {
 				System.out.println(munu+"오류가 발생했습니다 다시 시작합니다");
 				System.out.println("종료하시려면 1번 메인메뉴는 2번을 이전메뉴로 돌아갈려면 3번을 눌러주세요");
 				System.out.print("번호:");ends=sca.nextInt();
-				}while(ends!=1||ends!=2||ends!=3);
+				}while(ends!=1&&ends!=2&&ends!=3);
 				if(ends==3) {
 					 switch (x) {
 					 case 6:search.sec();break;
@@ -51,12 +50,13 @@ public class End {
 			else {
 				System.out.println("정상적으로 계좌"+munu+"끝낫습니다");
 			}
-		}else {
+		}else if(x==-1) {
 			System.out.println("프로그램을 종료하시겠습니까?");
-		}do {
+		}
+		do {
 		System.out.println("종료하시려면 1번 메인메뉴는 2번을 눌러주세요");
 		System.out.print("번호:");ends=sca.nextInt();
-		}while(ends!=2||ends!=1);
+		}while(ends!=2&&ends!=1);
 		if(ends==2) {
 			main.Page();	
 		}else {

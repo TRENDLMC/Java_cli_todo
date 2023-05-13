@@ -2,18 +2,19 @@ package main.page;
 
 import java.util.Scanner;
 
-public class seNumber {
+public class Senumber {
 	Scanner sca=new Scanner(System.in);
-	Sqltset sql=new Sqltset();
-	End end=new End();
 	
+	Sqltest sql=new Sqltest();
+	End end=new End();
 	Search search=new Search();
 	Create create=new Create();
 	
 	
 	String seNumber(int number) {
+		Deleacc del=new Deleacc();
 		Transfer tra=new Transfer();
-		deposit_and_withdrawal and= new deposit_and_withdrawal();
+		D_A_W and= new D_A_W();
 		String munu=null;
 		String num=null;
 		int munu1=number;
@@ -23,6 +24,7 @@ public class seNumber {
 		case 3:munu="받을" ;break;
 		case 4:munu="출금할";break;
 		case 5:munu="입금할";break;
+		case 6:munu="삭제할";break;
 		}
 		System.out.println(munu+"계좌번호를 입력해주세요");
 		System.out.print("계좌번호:");
@@ -37,6 +39,7 @@ public class seNumber {
 			 case 3:tra.moneyTransfor();break;
 			 case 4:and.meney(1);break;
 			 case 5:and.meney(2);break;
+			 case 6:del.delacc();; break;
 				}
 				
 		 }
@@ -45,7 +48,7 @@ public class seNumber {
 	
 	void sePass(String num) {
 		
-		System.out.println("조회할 계좌 비밀번호를 입력해주세요");
+		System.out.println("계좌 비밀번호를 입력해주세요");
 		System.out.print("비밀번호:");
 		int pass=sca.nextInt();
 		int passO=sql.sepass(num);
