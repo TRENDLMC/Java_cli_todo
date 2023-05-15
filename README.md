@@ -3,6 +3,7 @@
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/3251be69-0791-4c22-90a9-a4ddc17cbe4b)
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/13cf48b7-200d-46c6-9966-a26fe25b0b2c)
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/e9a45f57-c825-47ee-8ffd-f3ecb3a4ea20)
+![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/9c6515f3-0a2f-47d9-b459-d6296c7dc223)
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/f1179e6a-feae-4a97-8a7e-4a5a0b1afb84)
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/f92c6f65-e52f-4755-a173-f65ab4d0145b)
 ![image](https://github.com/TRENDLMC/fantastic_broccoli/assets/130523481/cb25e3fb-0114-49b2-bd6c-d8dddadffdf0)
