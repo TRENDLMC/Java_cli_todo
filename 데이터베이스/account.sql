@@ -1,5 +1,9 @@
+drop index idx_accnum;
 drop table accnum;
 drop SEQUENCE numadd;
+
+
+
 
 CREATE table accnum(
 cuname varchar2(10),
@@ -12,5 +16,7 @@ money number
 CREATE SEQUENCE numadd
 INCREMENT by 1
 START with 1;
+
+create index idx_accnum on accnum(accnum);
 
 commit;
